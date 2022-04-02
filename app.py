@@ -1,16 +1,13 @@
-import os
-
 import requests
 import io
 from PIL import Image
-from flask import Flask, render_template, Response,request
+from flask import Flask, Response, request
 import cv2
-import psycopg2
 import face_recognition
 import numpy as np
 from flask_cors import CORS
 
-app=Flask(__name__)
+app = Flask(__name__)
 CORS(app)
 
 camera = cv2.VideoCapture(0)
@@ -101,7 +98,7 @@ def gen_frames(studentPhoto,takingPhoto):
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template('index.html')
+    return "succesful"
 @app.route('/video_feed/<id>', methods=['POST', 'GET'])
 def video_feed(id):
     print("entered")
