@@ -118,6 +118,9 @@ def video_feed(id):
     return Response(gen_frames(image,takingPhoto),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/test', methods=['GET'])
+def test():
+    return "test"
+
 if __name__=='__main__':
-    app.debug = True
-    app.run(host="0.0.0.0")
+    app.run(debug="True")
