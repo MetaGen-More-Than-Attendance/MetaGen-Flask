@@ -14,7 +14,6 @@ app=Flask(__name__)
 CORS(app)
 
 camera = cv2.VideoCapture(0)
-port = int(os.environ.get("PORT", 5000))
 
 # Load a sample picture and learn how to recognize it.
 krish_image = face_recognition.load_image_file(r"userPhotos\Teoman/Teoman.jpg")
@@ -44,13 +43,6 @@ face_locations = []
 face_encodings = []
 face_names = []
 process_this_frame = True
-
-def get_db_connection():
-    conn = psycopg2.connect(host='localhost',
-                            database='MetaGen',
-                            user='postgres',
-                            password='12345')
-    return conn
 
 def gen_frames(studentPhoto,takingPhoto):
     print(studentPhoto)
@@ -126,4 +118,4 @@ def test():
     return "testt"
 
 if __name__=='__main__':
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(debug=True)
