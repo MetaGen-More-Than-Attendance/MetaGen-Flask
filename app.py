@@ -1,3 +1,5 @@
+import os
+
 import requests
 import io
 from PIL import Image
@@ -12,6 +14,7 @@ app=Flask(__name__)
 CORS(app)
 
 camera = cv2.VideoCapture(0)
+port = int(os.environ.get("PORT", 5000))
 
 # Load a sample picture and learn how to recognize it.
 krish_image = face_recognition.load_image_file(r"userPhotos\Teoman/Teoman.jpg")
@@ -123,4 +126,4 @@ def test():
     return "testt"
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=port, debug=True)
