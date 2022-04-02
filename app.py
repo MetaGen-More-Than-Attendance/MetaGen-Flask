@@ -120,7 +120,7 @@ def video_feed(id):
 
 @app.route('/test', methods=['GET'])
 def test():
-    return "test"
+    return "testt"
 
 if __name__=='__main__':
     app.run(debug=True)
