@@ -60,7 +60,7 @@ def index():
 @app.route('/video_feed/<id>', methods=['POST', 'GET'])
 def video_feed(id):
     if request.method == "POST":
-        savedPhoto = requests.get('https://meta-gen.herokuapp.com/api/student?id=' + id)
+        savedPhoto = requests.get('https://meta-gen.herokuapp.com/api/student/get-photo?studentId=' + id)
         takingPhoto = request.files['file']
         # convert image to numpy array
         takesPhoto = face_recognition.load_image_file(takingPhoto)
